@@ -1,0 +1,21 @@
+1. filter file 2 by file 1 column 1 
+
+http://unix.stackexchange.com/questions/90489/compare-two-files-with-first-column-and-remove-duplicate-row-from-2nd-file-in-sh
+
+awk 'FNR==NR{a[$1];next};!($1 in a)' file1 file2 > file3
+
+Explanation:
+
+FNR == NR: This test is true when the number of records is equal to the number of records in the file. This is only true for the first file, for the second file NR will be equal to the number of lines of file1 + FNR.
+
+a[$1]: Create an array element index of the first field of file1.
+
+next: skip to the next record so no more processing is done on file1.
+
+!($1 in a): See if the first field ($1) is present in the array, ie in file1, and print the whole line (to file3).
+
+2. print number in certain column
+
+awk '{split($13, editDist, ":");split($16, mismatch, ":"); split($17, gap, ":"); split($18, gapLen, ":"); print editDist[3]"\t"mismatch[3]+gapLen[3]"\t"mismatch[3]"\t"gap[3]"\t"gapLen[3]}' n3yesn2no.sam >n3yesn2no_summary.sam
+
+awk 'FNR==NR{a[$1];next};($1 in a)' file1 file2 > file3
