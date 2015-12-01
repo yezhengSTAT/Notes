@@ -19,3 +19,6 @@ next: skip to the next record so no more processing is done on file1.
 awk '{split($13, editDist, ":");split($16, mismatch, ":"); split($17, gap, ":"); split($18, gapLen, ":"); print editDist[3]"\t"mismatch[3]+gapLen[3]"\t"mismatch[3]"\t"gap[3]"\t"gapLen[3]}' n3yesn2no.sam >n3yesn2no_summary.sam
 
 awk 'FNR==NR{a[$1];next};($1 in a)' file1 file2 > file3
+
+3.group by the first and second column and sum the third column
+awk '{a[$1" "$2]+=$3}END{for (i in a) print i,a[i]}' aaa.txt | sort
