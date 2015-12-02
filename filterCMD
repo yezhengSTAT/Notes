@@ -25,3 +25,6 @@ awk '{a[$1" "$2]+=$3}END{for (i in a) print i,a[i]}' aaa.txt | sort
 
 4. insert a column after certain column. e.g.insert after the second column
 awk '$2 = $2 FS "0"' file >outfile
+
+5. sort value eg. chr1 1005; chr1 105
+sort -k1.4n -k2n infile >outfile
