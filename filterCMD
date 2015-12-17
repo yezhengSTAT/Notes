@@ -28,3 +28,12 @@ awk '$2 = $2 FS "0"' file >outfile
 
 5. sort value eg. chr1 1005; chr1 105
 sort -k1.4n -k2n infile >outfile
+
+6. wc -l write to file: remove the path of the counted file:
+sed 's/\([0-9]*\).*/\1/' input >outfile
+less input:
+284 /p/keles/ENCODE-TE/volume13/SRR881996_Large/defaultDir/fithicDir/chr1/chr1.sign.contact
+281 /p/keles/ENCODE-TE/volume13/SRR881996_Large/defaultDir/fithicDir/chr2/chr2.sign.contact
+less output:
+284
+281
