@@ -37,3 +37,10 @@ less input:
 less output:
 284
 281
+
+7. Split a large file into parts:
+split [OPTION] [INPUT [PREFIX]]
+-l equal lines in each part
+-b equal bytes in each part
+-d enables a numeric suffix like prefix00 prefix01
+enabling the option -a to 1, single digit numeric suffix is se.t
