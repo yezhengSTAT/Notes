@@ -29,6 +29,9 @@ awk '$2 = $2 FS "0"' file >outfile
 5. sort value eg. chr1 1005; chr1 105
 sort -k1.4n -k2n infile >outfile
 
+sort exponential value -g
+decreasing order -r
+
 6. wc -l write to file: remove the path of the counted file:
 sed 's/\([0-9]*\).*/\1/' input >outfile
 less input:
