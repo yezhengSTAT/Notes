@@ -47,3 +47,6 @@ split [OPTION] [INPUT [PREFIX]]
 -b equal bytes in each part
 -d enables a numeric suffix like prefix00 prefix01
 enabling the option -a to 1, single digit numeric suffix is se.t
+
+
+8. find multiple folder size: du -sch *
