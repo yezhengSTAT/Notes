@@ -50,3 +50,7 @@ enabling the option -a to 1, single digit numeric suffix is se.t
 
 
 8. find multiple folder size: du -sch *
+
+9. awk filter by variable values. Cannot input the variable directly, instead define a new value and compare with the column of interest:
+thre=760
+awk '$1 < thre {print $0}' thre=$thre input
