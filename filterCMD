@@ -54,3 +54,6 @@ enabling the option -a to 1, single digit numeric suffix is se.t
 9. awk filter by variable values. Cannot input the variable directly, instead define a new value and compare with the column of interest:
 thre=760
 awk '$1 < thre {print $0}' thre=$thre input
+
+10. awk print just change the first column and print all the column except the modified first column:
+awk -v OFS="\t" '{split($1, id, "."); $1=""; {print id[1]"."id[2], $0}}' SRR881997_2_01_noheader.sam >/mnt/gluster/yzheng74/HiC/HiCPro/data/SRR881997_2_01_noheader
