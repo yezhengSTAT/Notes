@@ -57,3 +57,8 @@ awk '$1 < thre {print $0}' thre=$thre input
 
 10. awk print just change the first column and print all the column except the modified first column:
 awk -v OFS="\t" '{split($1, id, "."); $1=""; {print id[1]"."id[2], $0}}' SRR881997_2_01_noheader.sam >/mnt/gluster/yzheng74/HiC/HiCPro/data/SRR881997_2_01_noheader
+
+11. For duplicate parital columns (for example, column2-5), keep the first row when duplicate column2-5 appear.
+awk '{if(! a[$1]){print; a[$1]++}}'
+more condemssed way :
+awk '!a[$1]++' file
