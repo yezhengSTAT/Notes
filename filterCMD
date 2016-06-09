@@ -62,3 +62,7 @@ awk -v OFS="\t" '{split($1, id, "."); $1=""; {print id[1]"."id[2], $0}}' SRR8819
 awk '{if(! a[$1]){print; a[$1]++}}'
 more condemssed way :
 awk '!a[$1]++' file
+
+12. Sum one column values:
+awk '{s+=$1} END {printf "%.0f", s}' mydatafile
+awk '{s+=$1} END {print s}' mydatafile
