@@ -66,3 +66,6 @@ awk '!a[$1]++' file
 12. Sum one column values:
 awk '{s+=$1} END {printf "%.0f", s}' mydatafile
 awk '{s+=$1} END {print s}' mydatafile
+
+13. Read from file separated by "," and save as array
+ IFS=$"," read -r -a test <infile
