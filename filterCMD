@@ -69,3 +69,8 @@ awk '{s+=$1} END {print s}' mydatafile
 
 13. Read from file separated by "," and save as array
  IFS=$"," read -r -a test <infile
+ 
+14. When sort or picard runs, use tmp folder created locally instead of /tmp or $TMPDIR for space quota safty.
+sort -T 
+java -Djava.io.tmpdir=tmp
+picard -jar TMP_DIR=tmp
