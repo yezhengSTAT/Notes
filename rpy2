@@ -1,0 +1,2 @@
+install rpy2 and import rpy2.robjects - debug:
+https://github.com/ContinuumIO/anaconda-issues/issues/152
