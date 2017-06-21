@@ -74,3 +74,6 @@ awk '{s+=$1} END {print s}' mydatafile
 sort -T 
 java -Djava.io.tmpdir=tmp
 picard -jar TMP_DIR=tmp
+
+15. search string in file including TAB;
+grep -P 'A\tB'
