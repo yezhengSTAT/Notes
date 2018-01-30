@@ -77,3 +77,6 @@ picard -jar TMP_DIR=tmp
 
 15. search string in file including TAB;
 grep -P 'A\tB'
+
+16. World readable:
+chmod 777 -R folder
