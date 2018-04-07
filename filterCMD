@@ -82,5 +82,5 @@ grep -P 'A\tB'
 chmod 777 -R folder
 
 17. Insert one column at any position:
-awk '$17 = $17 FS "0,255,0"'
+awk -v OFS="\t" '$17 = $17 FS "0,255,0"' inFile >outFile
 insert 0,255,0 at the 18th column.
