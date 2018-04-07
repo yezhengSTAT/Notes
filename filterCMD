@@ -80,3 +80,7 @@ grep -P 'A\tB'
 
 16. World readable:
 chmod 777 -R folder
+
+17. Insert one column at any position:
+awk '$17 = $17 FS "0,255,0"'
+insert 0,255,0 at the 18th column.
