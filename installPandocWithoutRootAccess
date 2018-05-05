@@ -1,0 +1,7 @@
+https://github.com/jgm/pandoc/issues/2943
+
+wget https://github.com/jgm/pandoc/releases/download/1.17.0.2/pandoc-1.17.0.2-1-amd64.deb
+$ ar p pandoc-1.17.0.2-1-amd64.deb data.tar.gz | tar xvz --strip-components 2 -C $HOME
+$ which pandoc
+<home>/bin/pandoc
+$ pandoc --help
