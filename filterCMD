@@ -84,3 +84,6 @@ chmod 777 -R folder
 17. Insert one column at any position:
 awk -v OFS="\t" '$17 = $17 FS "\t0,255,0"' inFile >outFile
 insert 0,255,0 at the 18th column.
+
+18. Print the lines if the first column contains certain pattern (partially matched):
+awk '$1 ~ /snow/ { print $0}' dummy_file 
