@@ -90,3 +90,6 @@ awk '$1 ~ /snow/ { print $0}' dummy_file
 
 19. print columns that start with "MD":
 awk '{for (i=1;i<=NF;i++){if ($i ~/^MD:/) {print $i}}}' infile
+
+20.  merge two file: every two lines from one file and two lines from another:
+awk '{key=$0; getline; getline x<"testsq"; getline y<"testsq";print key "\n" $0 "\n" x "\n" y;}' testseq
