@@ -93,3 +93,7 @@ awk '{for (i=1;i<=NF;i++){if ($i ~/^MD:/) {print $i}}}' infile
 
 20.  merge two file: every two lines from one file and two lines from another:
 awk '{key=$0; getline; getline x<"testsq"; getline y<"testsq";print key "\n" $0 "\n" x "\n" y;}' testseq
+
+21. split a paired-end fastq file into two ends files:
+sed -ne '1~8p;2~8p;3~8p;4~8p' paired-end.fastq >single_end_1.fastq
+sed -ne '5~8p;6~8p;7~8p;8~8p' paired-end.fastq >single_end_2.fastq
