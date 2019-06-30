@@ -97,3 +97,5 @@ awk '{key=$0; getline; getline x<"testsq"; getline y<"testsq";print key "\n" $0 
 21. split a paired-end fastq file into two ends files:
 sed -ne '1~8p;2~8p;3~8p;4~8p' paired-end.fastq >single_end_1.fastq
 sed -ne '5~8p;6~8p;7~8p;8~8p' paired-end.fastq >single_end_2.fastq
+
+22. Check the sequence of genome: http://genome.ucsc.edu/cgi-bin/das/mm9/dna?segment=chr1:9838077,9838636
