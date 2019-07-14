@@ -1,0 +1,45 @@
+Error message:
+* installing *source* package ‘openssl’ ...
+** package ‘openssl’ successfully unpacked and MD5 sums checked
+** using staged installation
+Using PKG_CFLAGS=
+------------------------- ANTICONF ERROR ---------------------------
+Configuration failed because openssl was not found. Try installing:
+ * deb: libssl-dev (Debian, Ubuntu, etc)
+ * rpm: openssl-devel (Fedora, CentOS, RHEL)
+ * csw: libssl_dev (Solaris)
+ * brew: openssl@1.1 (Mac OSX)
+If openssl is already installed, check that 'pkg-config' is in your
+PATH and PKG_CONFIG_PATH contains a openssl.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+--------------------------------------------------------------------
+ERROR: configuration failed for package ‘openssl’
+* removing ‘/afs/cs.wisc.edu/s/R-3.6.1/lib/R/library/openssl’
+ERROR: dependency ‘openssl’ is not available for package ‘httr’
+* removing ‘/afs/cs.wisc.edu/s/R-3.6.1/lib/R/library/httr’
+ERROR: dependency ‘httr’ is not available for package ‘biomaRt’
+* removing ‘/afs/cs.wisc.edu/s/R-3.6.1/lib/R/library/biomaRt’
+ERROR: dependency ‘biomaRt’ is not available for package ‘GenomicFeatures’
+* removing ‘/afs/cs.wisc.edu/s/R-3.6.1/lib/R/library/GenomicFeatures’
+ERROR: dependency ‘GenomicFeatures’ is not available for package ‘csaw’
+* removing ‘/afs/cs.wisc.edu/s/R-3.6.1/lib/R/library/csaw’
+ERROR: dependency ‘csaw’ is not available for package ‘diffHic’
+* removing ‘/afs/cs.wisc.edu/s/R-3.6.1/lib/R/library/diffHic’
+
+The downloaded source packages are in
+	‘/tmp/RtmpWD3E8I/downloaded_packages’
+  
+  
+  
+Solution:
+wget https://www.openssl.org/source/openssl-1.0.2o.tar.gz
+tar -xzvf openssl-1.0.2o.tar.gz
+mkdir openssl
+cd openssl-1.0.2o
+./config -fPIC shared --openssldir=$HOME/lib/openssl 
+make -j16
+make test -j16
+make install
+echo 'export PKG_CONFIG_PATH="$HOME/lib/openssl/lib/pkgconfig:$PKG_CONFIG_PATH"' >> ~/.bash_profile
+echo 'export LD_LIBRARY_PATH="$HOME/lib/openssl/lib:$LD_LIBRARY_PATH"' >> ~/.bash_profile
