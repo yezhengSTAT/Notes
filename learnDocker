@@ -1,0 +1,15 @@
+The Docker commands we've covered so far are:
+
+docker [-d] [-p host:container] [-v /host/path:/container/path] run <IMAGE NAME>, which runs a Docker image
+docker images, which displays all installed images
+docker ps [-a], which displays all containers on the system
+docker exec <CONTAINER ID> <COMMAND>, which lets you run a command inside a running container
+docker stop <CONTAINER ID>, which stops a running container
+
+
+A Dockerfile is a list of commands, a lot like a shell script, that progressively builds the image:
+FROM lists the image to "inherit" from
+RUN executes a shell command
+COPY copies some data from the host to the image
+ENTRYPOINT sets the command that will be run when a container is created
+WORKDIR, like cd, sets the current working directory for the build script
